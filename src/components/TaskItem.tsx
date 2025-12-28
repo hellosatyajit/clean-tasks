@@ -163,8 +163,8 @@ const TaskItem: React.FC<TaskItemProps> = ({ task, onToggle, onSwapCategory, onD
         }}
       >
         {task.completed && (
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style={{ margin: 'auto' }}>
-            <path d="M2 7L6 11L12 3" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style={{ margin: 'auto', color: 'var(--color-button-white)' }}>
+            <path d="M2 7L6 11L12 3" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         )}
       </div>

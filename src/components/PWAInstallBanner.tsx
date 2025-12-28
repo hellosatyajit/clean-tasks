@@ -86,13 +86,13 @@ const PWAInstallBanner: React.FC = () => {
         className="flex items-center justify-between px-4 py-3 rounded-3xl shadoww-lg"
         style={{
           backgroundColor: 'var(--color-card-bg)',
-          boxShadow: '0 4px 16px rgba(0, 0, 0, 0.15)'
+          boxShadow: `0 4px 16px var(--color-shadow-strong)`
         }}
       >
         <div className="flex items-center gap-3 flex-1">
           <div
             className="flex items-center justify-center w-10 h-10 rounded-xl"
-            style={{ backgroundColor: '#F2F2F7' }}
+            style={{ backgroundColor: 'var(--color-input-bg)' }}
           >
             <IonIcon
               icon={downloadOutline}

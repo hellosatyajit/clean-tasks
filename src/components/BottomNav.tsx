@@ -25,7 +25,7 @@ const BottomNav: React.FC<BottomNavProps> = ({ onCompleteChecked, onAddTask, onS
       {/* Add Button */}
       <button 
         className="flex items-center justify-center" 
-        style={{ width: '56px', height: '56px', borderRadius: '16px', backgroundColor: 'var(--color-button-white)', boxShadow: '0 2px 8px rgba(0,0,0,0.12)' }}
+        style={{ width: '56px', height: '56px', borderRadius: '16px', backgroundColor: 'var(--color-button-white)', boxShadow: '0 2px 8px var(--color-shadow)' }}
         onClick={onAddTask}
       >
         <IonIcon 

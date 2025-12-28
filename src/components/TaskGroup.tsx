@@ -93,7 +93,7 @@ const TaskGroup: React.FC<TaskGroupProps> = ({ category, tasks, onToggleTask, on
         </div>
         
         {/* Task Container Card */}
-        <div className="task-scroll rounded-4xl flex flex-col flex-1 p-4 gap-2" style={{ backgroundColor: 'var(--color-card-bg)', boxShadow: '0 1px 3px rgba(0,0,0,0.08)' }}>
+        <div className="task-scroll rounded-4xl flex flex-col flex-1 p-4 gap-2" style={{ backgroundColor: 'var(--color-card-bg)', boxShadow: '0 1px 3px var(--color-shadow)' }}>
           <SortableContext items={tasks.map(t => t.id)} strategy={verticalListSortingStrategy}>
             {tasks.map((task) => (
               <TaskItem 
@@ -116,7 +116,7 @@ const TaskGroup: React.FC<TaskGroupProps> = ({ category, tasks, onToggleTask, on
             className="flex items-center gap-3 px-4 py-4 rounded-2xl task-item"
             style={{ 
               backgroundColor: 'var(--color-task-bg)',
-              boxShadow: '0 8px 24px rgba(0,0,0,0.2)',
+              boxShadow: `0 8px 24px var(--color-shadow-drag)`,
               transform: 'scale(1.05)',
               opacity: 0.95
             }}

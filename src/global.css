@@ -1,21 +1,58 @@
 @import "tailwindcss";
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
-@theme {
+/* Light theme (default) */
+:root {
   --color-page-bg: #E5E5EA;
   --color-card-bg: #FFFFFF;
   --color-task-bg: #E8E8ED;
-  --color-text-primary: #000000;
+  --color-text-primary: #0C0C0C;
   --color-text-secondary: #6B6B6B;
   --color-icon-gray: #8E8E93;
   --color-border-light: #C7C7CC;
   --color-checkbox: #C7C7CC;
   --color-button-gray: #D1D1D6;
   --color-button-white: #FFFFFF;
+  --color-input-bg: #F2F2F7;
+  --color-drag-handle: #D1D1D6;
+  --color-overlay: rgba(0, 0, 0, 0.3);
+  --color-shadow: rgba(0, 0, 0, 0.08);
+  --color-shadow-strong: rgba(0, 0, 0, 0.15);
+  --color-shadow-drag: rgba(0, 0, 0, 0.2);
+  --color-hover-overlay: rgba(0, 0, 0, 0.05);
+  --color-error: #FF3B30;
+  --color-success: #34C759;
+  --color-border-divider: #E5E5EA;
   
   --radius-card: 24px;
   --radius-task: 16px;
   --radius-button: 10px;
+}
+
+/* Dark theme - automatically applied when system preference is dark */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-page-bg: #0C0C0C;
+    --color-card-bg: #1C1C1E;
+    --color-task-bg: #2C2C2E;
+    --color-text-primary: #FFFFFF;
+    --color-text-secondary: #EBEBF5;
+    --color-icon-gray: #8E8E93;
+    --color-border-light: #38383A;
+    --color-checkbox: #48484A;
+    --color-button-gray: #2C2C2E;
+    --color-button-white: #1C1C1E;
+    --color-input-bg: #2C2C2E;
+    --color-drag-handle: #48484A;
+    --color-overlay: rgba(0, 0, 0, 0.5);
+    --color-shadow: rgba(0, 0, 0, 0.3);
+    --color-shadow-strong: rgba(0, 0, 0, 0.4);
+    --color-shadow-drag: rgba(0, 0, 0, 0.5);
+    --color-hover-overlay: rgba(255, 255, 255, 0.08);
+    --color-error: #FF453A;
+    --color-success: #30D158;
+    --color-border-divider: #38383A;
+  }
 }
 
 @layer base {
@@ -61,7 +98,7 @@
   }
 
   .swap-button:hover {
-    background-color: rgba(0, 0, 0, 0.05);
+    background-color: var(--color-hover-overlay);
     transform: scale(1.1);
   }
 

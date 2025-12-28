@@ -55,7 +55,7 @@ const AddTaskBottomSheet: React.FC<AddTaskBottomSheetProps> = ({ isOpen, onClose
   return (
     <Drawer.Root open={isOpen} onOpenChange={(open) => !open && onClose()}>
       <Drawer.Portal>
-        <Drawer.Overlay className="fixed inset-0 bg-black/30" style={{ zIndex: 40 }} />
+        <Drawer.Overlay className="fixed inset-0" style={{ zIndex: 40, backgroundColor: 'var(--color-overlay)' }} />
         <Drawer.Content 
           className="fixed bottom-0 left-0 right-0 outline-none"
           style={{ zIndex: 50 }}
@@ -64,7 +64,7 @@ const AddTaskBottomSheet: React.FC<AddTaskBottomSheetProps> = ({ isOpen, onClose
             className="rounded-t-3xl overflow-hidden"
             style={{ 
               backgroundColor: 'var(--color-card-bg)',
-              boxShadow: '0 -4px 16px rgba(0, 0, 0, 0.15)',
+              boxShadow: `0 -4px 16px var(--color-shadow-strong)`,
               paddingBottom: 'env(safe-area-inset-bottom, 0px)'
             }}
           >
@@ -72,7 +72,7 @@ const AddTaskBottomSheet: React.FC<AddTaskBottomSheetProps> = ({ isOpen, onClose
             <div className="flex justify-center pt-3 pb-2">
               <div 
                 className="w-10 h-1 rounded-full"
-                style={{ backgroundColor: '#D1D1D6' }}
+                style={{ backgroundColor: 'var(--color-drag-handle)' }}
               />
             </div>
 
@@ -96,9 +96,9 @@ const AddTaskBottomSheet: React.FC<AddTaskBottomSheetProps> = ({ isOpen, onClose
                   }}
                   placeholder="Task name..."
                   maxLength={MAX_TASK_LENGTH}
-                  className="w-full px-4 py-3.5 rounded-2xl text-base outline-none"
+                  className="w-full px-4 py-3.5 rounded-xl text-base outline-none"
                   style={{
-                    backgroundColor: '#F2F2F7',
+                    backgroundColor: 'var(--color-input-bg)',
                     color: 'var(--color-text-primary)',
                     border: 'none',
                     paddingRight: showCounter ? '40px' : '16px'
@@ -116,7 +116,7 @@ const AddTaskBottomSheet: React.FC<AddTaskBottomSheetProps> = ({ isOpen, onClose
                     <span
                       className="text-xs font-medium"
                       style={{
-                        color: isNearLimit ? '#FF3B30' : 'var(--color-text-secondary)',
+                        color: isNearLimit ? 'var(--color-error)' : 'var(--color-text-secondary)',
                         transition: 'color 0.2s ease'
                       }}
                     >
@@ -127,7 +127,7 @@ const AddTaskBottomSheet: React.FC<AddTaskBottomSheetProps> = ({ isOpen, onClose
               </div>
 
               {/* Category Toggle - iOS Style Segmented Control */}
-              <div className="mt-4 p-1 rounded-xl" style={{ backgroundColor: '#F2F2F7' }}>
+              <div className="mt-4 p-1 rounded-xl" style={{ backgroundColor: 'var(--color-input-bg)' }}>
                 <div className="flex gap-1 relative">
                   <button
                     onClick={() => setSelectedCategory('today')}
@@ -156,27 +156,27 @@ const AddTaskBottomSheet: React.FC<AddTaskBottomSheetProps> = ({ isOpen, onClose
 
               {/* Action Buttons */}
               <div className="mt-6 flex gap-3">
-                <button
-                  onClick={onClose}
-                  className="flex-1 py-3.5 rounded-xl font-semibold"
-                  style={{
-                    backgroundColor: '#F2F2F7',
-                    color: 'var(--color-text-secondary)'
-                  }}
-                >
-                  Cancel
-                </button>
-                <button
-                  onClick={handleAdd}
-                  disabled={!taskTitle.trim()}
-                  className="flex-1 py-3.5 rounded-xl font-semibold transition-all"
-                  style={{
-                    backgroundColor: taskTitle.trim() ? 'var(--color-text-primary)' : '#D1D1D6',
-                    color: 'var(--color-card-bg)',
-                    opacity: taskTitle.trim() ? 1 : 0.5,
-                    cursor: taskTitle.trim() ? 'pointer' : 'not-allowed'
-                  }}
-                >
+                  <button
+                    onClick={onClose}
+                    className="flex-1 py-3.5 rounded-xl font-semibold"
+                    style={{
+                      backgroundColor: 'var(--color-input-bg)',
+                      color: 'var(--color-text-secondary)'
+                    }}
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    onClick={handleAdd}
+                    disabled={!taskTitle.trim()}
+                    className="flex-1 py-3.5 rounded-xl font-semibold transition-all"
+                    style={{
+                      backgroundColor: taskTitle.trim() ? 'var(--color-text-primary)' : 'var(--color-button-gray)',
+                      color: 'var(--color-card-bg)',
+                      opacity: taskTitle.trim() ? 1 : 0.5,
+                      cursor: taskTitle.trim() ? 'pointer' : 'not-allowed'
+                    }}
+                  >
                   Add
                 </button>
               </div>

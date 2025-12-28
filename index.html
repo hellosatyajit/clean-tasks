@@ -14,8 +14,8 @@
     <meta name="format-detection" content="telephone=no" />
     <meta name="msapplication-tap-highlight" content="no" />
     
-    <!-- Theme color for browser and PWA -->
-    <meta name="theme-color" content="#E5E5EA" />
+    <!-- Theme color for browser and PWA - dynamically updated based on system preference -->
+    <meta name="theme-color" content="#E5E5EA" id="theme-color-meta" />
     
     <!-- OpenGraph / Social Media -->
     <meta property="og:title" content="Clean Tasks" />
@@ -44,5 +44,21 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <script>
+      // Update theme-color meta tag based on system preference
+      function updateThemeColor() {
+        const themeColorMeta = document.getElementById('theme-color-meta');
+        if (themeColorMeta) {
+          const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          themeColorMeta.setAttribute('content', isDark ? '#ff00ff' : '#E5E5EA');
+        }
+      }
+      
+      // Update on load
+      updateThemeColor();
+      
+      // Update when system preference changes
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', updateThemeColor);
+    </script>
   </body>
 </html>

@@ -19,7 +19,7 @@ const SettingsSheet: React.FC<SettingsSheetProps> = ({
   return (
     <Drawer.Root open={isOpen} onOpenChange={(open) => !open && onClose()}>
       <Drawer.Portal>
-        <Drawer.Overlay className="fixed inset-0 bg-black/30" style={{ zIndex: 40 }} />
+        <Drawer.Overlay className="fixed inset-0" style={{ zIndex: 40, backgroundColor: 'var(--color-overlay)' }} />
         <Drawer.Content 
           className="fixed bottom-0 left-0 right-0 outline-none"
           style={{ zIndex: 50 }}
@@ -28,7 +28,7 @@ const SettingsSheet: React.FC<SettingsSheetProps> = ({
             className="rounded-t-3xl overflow-hidden"
             style={{ 
               backgroundColor: 'var(--color-card-bg)',
-              boxShadow: '0 -4px 16px rgba(0, 0, 0, 0.15)',
+              boxShadow: `0 -4px 16px var(--color-shadow-strong)`,
               paddingBottom: 'env(safe-area-inset-bottom, 0px)',
               maxHeight: '90vh'
             }}
@@ -37,7 +37,7 @@ const SettingsSheet: React.FC<SettingsSheetProps> = ({
             <div className="flex justify-center pt-3 pb-2">
               <div 
                 className="w-10 h-1 rounded-full"
-                style={{ backgroundColor: '#D1D1D6' }}
+                style={{ backgroundColor: 'var(--color-drag-handle)' }}
               />
             </div>
 
@@ -68,7 +68,7 @@ const SettingsSheet: React.FC<SettingsSheetProps> = ({
                           icon={isInstalled ? checkmarkCircleOutline : downloadOutline}
                           style={{ 
                             fontSize: '24px', 
-                            color: isInstalled ? '#34C759' : 'var(--color-text-primary)'
+                            color: isInstalled ? 'var(--color-success)' : 'var(--color-text-primary)'
                           }}
                         />
                       </div>
@@ -118,7 +118,7 @@ const SettingsSheet: React.FC<SettingsSheetProps> = ({
               </div>
 
               {/* Footer */}
-              <div className="pt-6 border-t" style={{ borderColor: '#E5E5EA' }}>
+              <div className="pt-6 border-t" style={{ borderColor: 'var(--color-border-divider)' }}>
                 <div className="flex justify-center">
                   <p className="text-xs" style={{ color: 'var(--color-text-secondary)' }}>
                     Built by{' '}
