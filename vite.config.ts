@@ -18,7 +18,7 @@ export default defineConfig({
     setupFiles: './src/setupTests.ts',
   },
   server: {
-    allowedHosts: ['clean.satyajit.xyz', '27dabc11b569.ngrok-free.app'],
+    allowedHosts: ['clean.satyajit.xyz'],
     port: 5173,
   }
 })
