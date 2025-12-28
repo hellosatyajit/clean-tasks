@@ -12,23 +12,23 @@
     "lint": "eslint"
   },
   "dependencies": {
-    "@capacitor/app": "8.0.0",
-    "@capacitor/core": "8.0.0",
-    "@capacitor/haptics": "8.0.0",
-    "@capacitor/keyboard": "8.0.0",
-    "@capacitor/status-bar": "8.0.0",
-    "@ionic/react": "^8.5.0",
-    "@ionic/react-router": "^8.5.0",
+    "@dnd-kit/core": "^6.3.1",
+    "@dnd-kit/sortable": "^10.0.0",
+    "@dnd-kit/utilities": "^3.2.2",
+    "@ionic/react": "^8.7.15",
+    "@tailwindcss/vite": "^4.1.18",
     "@types/react-router": "^5.1.20",
     "@types/react-router-dom": "^5.3.3",
-    "ionicons": "^7.4.0",
+    "ionicons": "^8.0.13",
+    "lucide-react": "^0.562.0",
     "react": "19.0.0",
     "react-dom": "19.0.0",
     "react-router": "^5.3.4",
-    "react-router-dom": "^5.3.4"
+    "react-router-dom": "^5.3.4",
+    "tailwindcss": "^4.1.18",
+    "vaul": "^1.1.2"
   },
   "devDependencies": {
-    "@capacitor/cli": "8.0.0",
     "@testing-library/dom": ">=7.21.4",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^16.2.0",
@@ -50,5 +50,5 @@
     "vite": "^5.0.0",
     "vitest": "^0.34.6"
   },
-  "description": "An Ionic project"
+  "description": "A React project"
 }

@@ -1,0 +1,102 @@
+@import "tailwindcss";
+
+@theme {
+  --color-page-bg: #E5E5EA;
+  --color-card-bg: #FFFFFF;
+  --color-task-bg: #E8E8ED;
+  --color-text-primary: #000000;
+  --color-text-secondary: #6B6B6B;
+  --color-icon-gray: #8E8E93;
+  --color-border-light: #C7C7CC;
+  --color-checkbox: #C7C7CC;
+  --color-button-gray: #D1D1D6;
+  --color-button-white: #FFFFFF;
+  
+  --radius-card: 24px;
+  --radius-task: 16px;
+  --radius-button: 10px;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-page-bg);
+    margin: 0;
+    padding: 0;
+  }
+}
+
+@layer components {
+  .task-checkbox {
+    width: 22px;
+    height: 22px;
+    border: 2px solid var(--color-checkbox);
+    border-radius: 50%;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .task-checkbox:hover {
+    transform: scale(1.1);
+  }
+
+  .task-scroll {
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+  }
+
+  .drag-handle:active {
+    opacity: 0.8;
+  }
+
+  .task-item {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .swap-button:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    transform: scale(1.1);
+  }
+
+  .swap-button:active {
+    transform: scale(0.95);
+  }
+
+  .task-removing {
+    animation: slideOut 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideUp {
+    from {
+      transform: translateY(100%);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideOut {
+    0% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    100% {
+      opacity: 0;
+      transform: translateX(100%);
+    }
+  }
+}
