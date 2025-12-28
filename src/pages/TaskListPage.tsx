@@ -5,9 +5,12 @@ import BottomNav from '../components/BottomNav';
 import AddTaskBottomSheet from '../components/AddTaskBottomSheet';
 import SettingsSheet from '../components/SettingsSheet';
 import PWAInstallBanner from '../components/PWAInstallBanner';
+import { useLocalStorage } from '../hooks/useLocalStorage';
+
+const STORAGE_KEY = 'clean-tasks-data';
 
 const TaskListPage: React.FC = () => {
-  const [tasks, setTasks] = useState<Task[]>(mockTasks);
+  const [tasks, setTasks] = useLocalStorage<Task[]>(STORAGE_KEY, mockTasks);
   const [isAddSheetOpen, setIsAddSheetOpen] = useState(false);
   const [isSettingsSheetOpen, setIsSettingsSheetOpen] = useState(false);
 
