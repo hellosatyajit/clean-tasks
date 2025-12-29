@@ -26,7 +26,8 @@
     "react-router": "^5.3.4",
     "react-router-dom": "^5.3.4",
     "tailwindcss": "^4.1.18",
-    "vaul": "^1.1.2"
+    "vaul": "^1.1.2",
+    "workbox-window": "^7.4.0"
   },
   "devDependencies": {
     "@testing-library/dom": ">=7.21.4",
