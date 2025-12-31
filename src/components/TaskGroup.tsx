@@ -8,6 +8,7 @@ import {
   DragOverlay,
   DragStartEvent,
   TouchSensor,
+  MouseSensor,
   useSensor,
   useSensors,
   closestCenter
@@ -31,12 +32,17 @@ interface TaskGroupProps {
 const TaskGroup: React.FC<TaskGroupProps> = ({ category, tasks, onToggleTask, onSwapCategory, onDeleteTask, onReorder }) => {
   const [activeId, setActiveId] = useState<string | null>(null);
 
-  // Configure sensors - TouchSensor for mobile with long-press activation
+  // Configure sensors - TouchSensor for mobile with long-press activation, MouseSensor for desktop
   const sensors = useSensors(
     useSensor(TouchSensor, {
       activationConstraint: {
         delay: 150,        // wait 150ms (long press activation)
         tolerance: 8       // allow slight finger shake
+      }
+    }),
+    useSensor(MouseSensor, {
+      activationConstraint: {
+        distance: 8,       // require 8px movement before activation (prevents accidental drags)
       }
     })
   );
@@ -77,9 +83,9 @@ const TaskGroup: React.FC<TaskGroupProps> = ({ category, tasks, onToggleTask, on
       onDragEnd={handleDragEnd}
       onDragCancel={handleDragCancel}
     >
-      <div className="flex flex-col px-4 h-full">
+      <div className="flex flex-col px-4 h-full items-center">
         {/* Category Header */}
-        <div className="flex items-center justify-center gap-2 mb-3 px-1">
+        <div className="flex items-center justify-center gap-2 mb-3 px-1 w-full max-w-xs">
           <IonIcon 
             icon={category === 'today' ? calendarOutline : calendarClearOutline}
             style={{ fontSize: '16px', color: 'var(--color-text-primary)' }}
@@ -93,7 +99,7 @@ const TaskGroup: React.FC<TaskGroupProps> = ({ category, tasks, onToggleTask, on
         </div>
         
         {/* Task Container Card */}
-        <div className="task-scroll rounded-4xl flex flex-col flex-1 p-4 gap-2" style={{ backgroundColor: 'var(--color-card-bg)', boxShadow: '0 1px 3px var(--color-shadow)' }}>
+        <div className="task-scroll rounded-4xl flex flex-col flex-1 p-4 gap-2 w-full max-w-md" style={{ backgroundColor: 'var(--color-card-bg)', boxShadow: '0 1px 3px var(--color-shadow)' }}>
           <SortableContext items={tasks.map(t => t.id)} strategy={verticalListSortingStrategy}>
             {tasks.map((task) => (
               <TaskItem 
